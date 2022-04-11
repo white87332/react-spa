@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from 'react';
+import { Provider } from 'react-redux';
 import {
     BrowserRouter,
     Routes,
@@ -16,27 +17,27 @@ const GlobalStyle = createGlobalStyle`
 
 const Wrapper = lazy(() => import('./components/wrapper/wrapper'));
 const Layout = lazy(() => import('./components/layout/layout'));
-const Expenses = lazy(() => import('./components/expenses/expenses'));
-const Invoices = lazy(() => import('./components/invoices/invoices'));
+const Counter = lazy(() => import('./containers/counter/counter'));
 
-export function createRoutes()
+export function createRoutes(store)
 {
     return (
         <React.StrictMode>
-            <BrowserRouter>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <React.Fragment>
-                        <Normalize />
-                        <GlobalStyle />
-                        <Routes>
-                            <Route path="/" element={<Layout />}>
-                                <Route path="expenses" element={<Expenses />} />
-                                <Route path="invoices" element={<Invoices />} />
-                            </Route>
-                        </Routes>
-                    </React.Fragment>
-                </Suspense>
-            </BrowserRouter>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <React.Fragment>
+                            <Normalize />
+                            <GlobalStyle />
+                            <Routes>
+                                <Route path="/" element={<Layout />}>
+                                    <Route path="counter" element={<Counter />} />
+                                </Route>
+                            </Routes>
+                        </React.Fragment>
+                    </Suspense>
+                </BrowserRouter>
+            </Provider>
         </React.StrictMode>
     );
 }

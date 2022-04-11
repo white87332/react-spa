@@ -12,8 +12,7 @@ export default function Header()
                     paddingBottom: "1rem",
                 }}
             >
-              <Link to="/invoices">Invoices</Link> |{" "}
-              <Link to="/expenses">Expenses</Link>
+              <Link to="/counter">counter</Link>
             </nav>
         </header>
     );
