@@ -32,7 +32,18 @@ module.exports = {
         {
             test: /\.(ttf|eot|svg|woff(2))(\?[a-z0-9]+)?$/,
             loader: 'file',
-        }]
+        },
+        {
+            test: /\.s[ac]ss$/i,
+            use: [
+                // Creates `style` nodes from JS strings
+                "style-loader",
+                // Translates CSS into CommonJS
+                "css-loader",
+                // Compiles Sass to CSS
+                "sass-loader",
+            ],
+        }],
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

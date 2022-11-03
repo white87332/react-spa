@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Wrapper = lazy(() => import('./components/wrapper/wrapper'));
 const Layout = lazy(() => import('./components/layout/layout'));
+const Index = lazy(() => import('./containers/index/index'));
 const Counter = lazy(() => import('./containers/counter/counter'));
 
 export function createRoutes(store)
@@ -31,6 +32,7 @@ export function createRoutes(store)
                             <GlobalStyle />
                             <Routes>
                                 <Route path="/" element={<Layout />}>
+                                    <Route path="index" element={<Index />} />
                                     <Route path="counter" element={<Counter />} />
                                 </Route>
                             </Routes>

@@ -1,0 +1,17 @@
+.counter
+{
+    height: 100vh;
+    
+    .a
+    {
+        height: 200px;
+        position: relative;
+
+        .b
+        {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    }
+}
