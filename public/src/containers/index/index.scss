@@ -1,35 +1,37 @@
 div.index
 {
-    width: 60%;
     display: flex;
-    margin: 0 auto;
-    justify-content: flex-start;
     flex-wrap: wrap;
+    justify-content: flex-start;
 
-    > div.item
+    width: 60%;
+    margin: 0 auto;
+
+     > div.item
     {
+        display: flex;
+        flex-direction: column;
+
         width: 33%;
         height: 250px;
         margin-right: .5%;
         margin-bottom: 1%;
-        display: flex;
-        flex-direction: column;
 
         &:nth-child(3n)
         {
             margin-right: 0;
         }
 
-        > .bg
+         > .bg
         {
             flex: 1;
 
-            background-position: center;
             background-repeat: no-repeat;
+            background-position: center;
             background-size: cover;
         }
 
-        > .des
+         > .des
         {
             height: 20px;
         }

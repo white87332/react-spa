@@ -14,22 +14,24 @@ export default function Index(props)
     //         );
     //     });
     // }, []);
+    //
 
-    const renderData = () => {
 
-        return data.map((item) => {
-            return (
-                <div className="item" key={item.post_id}>
-                    <div className="bg" style={{ backgroundImage: `url('${item.display_resources.cover_url}')` }}/>
-                    <div className="des">{item.desc}</div>
-                </div>
-            );
-        });;
-    }
+    // const renderData = () => {
+    //
+    //     return data.map((item) => {
+    //         return (
+    //             <div className="item" key={item.post_id} onClick=>
+    //                 <div className="bg" style={{ backgroundImage: `url('${item.display_resources.cover_url}')` }}/>
+    //                 <div className="des">{item.desc}</div>
+    //             </div>
+    //         );
+    //     });;
+    // }
 
     return (
         <div className="index">
-            {renderData()}
+            {/* {renderData()} */}
         </div>
     );
 }
