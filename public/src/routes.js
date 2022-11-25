@@ -1,13 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import { Provider } from 'react-redux';
-import {
-    BrowserRouter,
-    Routes,
-    Route
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { createGlobalStyle } from 'styled-components'
-import { Normalize } from 'styled-normalize'
+import { createGlobalStyle } from 'styled-components';
+import { Normalize } from 'styled-normalize';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -15,10 +11,11 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const Wrapper = lazy(() => import('./components/wrapper/wrapper'));
 const Layout = lazy(() => import('./components/layout/layout'));
 const Index = lazy(() => import('./containers/index/index'));
 const Counter = lazy(() => import('./containers/counter/counter'));
+const PhoneBook = lazy(() => import('./containers/phoneBook/phoneBook'));
+const Carousel = lazy(() => import('./containers/carousel/carousel'));
 
 export function createRoutes(store)
 {
@@ -27,16 +24,18 @@ export function createRoutes(store)
             <Provider store={store}>
                 <BrowserRouter>
                     <Suspense fallback={<div>Loading...</div>}>
-                        <React.Fragment>
+                        <>
                             <Normalize />
                             <GlobalStyle />
                             <Routes>
                                 <Route path="/" element={<Layout />}>
                                     <Route path="index" element={<Index />} />
                                     <Route path="counter" element={<Counter />} />
+                                    <Route path="phoneBook" element={<PhoneBook />} />
+                                    <Route path="carousel" element={<Carousel />} />
                                 </Route>
                             </Routes>
-                        </React.Fragment>
+                        </>
                     </Suspense>
                 </BrowserRouter>
             </Provider>
